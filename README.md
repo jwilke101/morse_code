@@ -1,43 +1,60 @@
 # morse_code
-Morse Code library for Arduino. Turns on digital pin on and off with morse code timing.
+<h1>Morse Code library for Arduino.</h1>
+<h2>Turns digital pin on and off with morse code timing.</h2>
 
-Codes are kept in global array morse_code.cpp
-Uppers case letters A-Z Numbers 0-9 Includes (.) period and (-) minus sign for GPS Coordinates.
+Tested with Mega 2560, two wire laser module, and Neo7 GPS with 9600 baud.
+
+Morse Codes are kept in global array: morseCodes[ ][ ] found in morse_code.cpp 
+
+Contains upper case letters A-Z, numbers 0-9 and also includes (.) period, and, (-) minus sign, for GPS Coordinates. 
+
+If you add elements to the array, be sure to add their alphanumeric digit to the Alphabet string in _getCode(); morse_code.cpp
+
+<ul>
+<li>#define CODES_CNT 38</li>
+</ul>
+
+Example code can be use a laser pointer with (+) wire in digital pin 10 (by default) and the (-) wire in ground. The code Will flash laser dots and dashes with the proper morse code durations. The same code can be used with a passive buzzer or any other device if attached to pin 10 and ground. 
+
+Any device attached to the default, or, user defined pin will recieve HIGH (on) and LOW (off) output.
+
+Method playGpsSos(msg) will find your gps coordinates and play a message with the text: "SOS LAT 99.99 LON 99.99 [msg] AR"
 
 
-Spacing and length of the signals are calculated from one unit.
+<b>Spacing and length of the signals are calculated from one unit.</b>
+<ul>
+<li>A dot is equal to one unit.</li>
 
-A dot is equal to one unit.
+<li>A dash is equal to three units.</li>
 
-A dash is equal to three units.
+<li>The space between the signals forming the same letter is equal to one unit.</li>
 
-The space between the signals forming the same letter is equal to one unit.
+<li>The space between two letters is equal to three units.</li>
 
-The space between two letters is equal to three units.
-
-The space between two words is equal to seven units.
+<li>The space between two words is equal to seven units.</li>
+</ul>
 
 These settings can be found in morse_code.h
 
-In milliseconds 250 = 1/4 of a second.
+<ul>
+<li>// In milliseconds 250 = 1/4 of a second.</li>
+<li>#define DEFAULT_UNIT 250    </li>
+</ul>
 
-#define DEFAULT_UNIT 250    
+<ul>
+<li>// Digital pin for device change here or constructor.</li?
+<li>#define DEFAULT_DEV 10</li>
+</ul>
 
-Digital pin for device change here or constructor.
-#define DEFAULT_DEV 10      
+<ul>
+<li>// Change your GPS Baud here.</li>
+<li>#define GPS_BAUD 9600</li>
+</ul>
 
-The codes array contains morse codes for chars: period, minus, A-Z and 0-9. If you add elements, be sure to add them to the Alphabet string in _getCode().
-
-#define CODES_CNT 38        
-
-// Change your GPS Baud here.
-
-#define GPS_BAUD 9600       
-
-// For GPS Mega 2560 uses 19, 18 RX, TX Uno use 4,3
-
-#define RX 19               
-
+<ul>
+<li>// For GPS Mega 2560 uses 19, 18 RX, TX Uno use 4,3</li>
+<li>#define RX 19</li>
+</ul>
 #define TX 18
 
 #define _ss Serial1   // Comment for Uno.
