@@ -4,15 +4,15 @@ Morse Code library for Arduino. Turns on digital pin on and off with morse code 
 Codes are kept in global array morse_code.cpp
 Uppers case letters A-Z Numbers 0-9 Includes (.) period and (-) minus sign for GPS Coordinates.
 
-/****************************************************************************
-// Spacing and length of the signals are calculated from one unit.
-// A dot is equal to one unit.
-// A dash is equal to three units.
-// The space between the signals forming the same letter is equal to one unit.
-// The space between two letters is equal to three units.
-// The space between two words is equal to seven units.
-****************************************************************************/
-// These settings can be found in morse_code.h
+
+Spacing and length of the signals are calculated from one unit.
+A dot is equal to one unit.
+A dash is equal to three units.
+The space between the signals forming the same letter is equal to one unit.
+The space between two letters is equal to three units.
+The space between two words is equal to seven units.
+
+These settings can be found in morse_code.h
 #define DEFAULT_UNIT 250    // In milliseconds 250 = 1/4 of a second.
 
 #define DEFAULT_DEV 10      // Digital pin for device change here or constructor.
